@@ -1,0 +1,26 @@
+body {
+    background: #dafff8;
+    width: 800px;
+    margin: auto;
+}
+h1 {
+    color: #333537;
+    text-align: center;
+}
+p{
+    color: gray;
+    padding: 20px;
+}
+
+#test{
+    color: black;
+    padding: 0px;
+}
+
+#test:hover{
+    color: red;
+}
+
+.main_svg_graph{
+    background: greenyellow;
+}
