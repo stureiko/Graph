@@ -17,6 +17,7 @@ export function tableFactory(_rows) {
         .append('table')
         .attr('class', 'table');
 
+
     const tableHeader = table.append('thead') //Добавляем заголовок
         .append('tr');
 
@@ -48,14 +49,14 @@ export function tableFactory(_rows) {
     };
 }
 
-function coloredTable(){
+export function coloredTable(){
     d3.selectAll('thead').selectAll('th').style('font-wieght', 'bold');
     d3.selectAll('tbody tr')
         // .selectAll('td') // если добавить то вместо строк будут раскрашены столбцы вместо строк
         .style('color', (d, i) => {return i%2 ? 'green': 'red';})
 }
 
-function addColumn(){
+export function addColumn(){
     const newCol = d3.selectAll('tr').append('td');
     newCol.text((d, i) => ['Four', 4, 6][i]);
 }
