@@ -14,7 +14,7 @@ p{
 
 #test{
     color: black;
-    padding: 0px;
+    padding: 0;
 }
 
 #test:hover{
@@ -24,4 +24,3 @@ p{
 .main_svg_graph{
     background: greenyellow;
 }
-

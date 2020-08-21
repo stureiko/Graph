@@ -53,7 +53,9 @@ export function coloredTable(){
     d3.selectAll('thead').selectAll('th').style('font-wieght', 'bold');
     d3.selectAll('tbody tr')
         // .selectAll('td') // если добавить то вместо строк будут раскрашены столбцы вместо строк
-        .style('color', (d, i) => {return i%2 ? 'green': 'red';})
+        .style('color', (d, i) => {return i%2 ? 'green': 'red';});
+    d3.selectAll('tbody tr')
+        .style('text-align', 'center');
 }
 
 export function addColumn(){
