@@ -8,12 +8,53 @@ export default function createTable(){
     addColumn();
 };
 
+// export function tableFactory(_rows) {
+//     const rows = Array.from(_rows);
+//     const header = rows.shift(); // Первая строка заголовок
+//     const data = rows; // все остальные - данные
+//
+//     const table = d3.select('body') // Создание таблицы
+//         .append('table')
+//         .attr('class', 'table');
+//
+//
+//     const tableHeader = table.append('thead') //Добавляем заголовок
+//         .append('tr');
+//
+//     const tableBody = table.append('tbody'); // Добавляем тело таблицы
+//
+//     // Обходим в цикле
+//     // Каждый элемент 'header' - строка
+//     header.forEach(value => {
+//         tableHeader.append('th')
+//             .text(value);
+//     });
+//
+//     // каждый элемент data - массив
+//     data.forEach(row => {
+//         const tableRow = tableBody.append('tr');
+//
+//         // каждый элемент row - строка
+//         row.forEach(value => {
+//             tableRow.append('td')
+//                 .text(value);
+//         });
+//     });
+//
+//
+//     return{
+//         table,
+//         header,
+//         data
+//     };
+// }
+
 export function tableFactory(_rows) {
     const rows = Array.from(_rows);
     const header = rows.shift(); // Первая строка заголовок
     const data = rows; // все остальные - данные
 
-    const table = d3.select('body') // Создание таблицы
+    const table = d3.select('.node_table') // Создание таблицы
         .append('table')
         .attr('class', 'table');
 
