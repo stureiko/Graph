@@ -99,3 +99,10 @@ body {
 .main_svg_graph{
     background: greenyellow;
 }
+
+#graph {
+    width: 600px;
+    height: 300px;
+    background-color: gainsboro;
+    margin: 10px auto;
+}
