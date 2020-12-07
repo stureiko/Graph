@@ -1,13 +1,13 @@
 export default function addGraph(graphNodes){
 // Создаем поле для графа
-    var svg = d3.select("body")
+    const svg = d3.select("body")
         .append("svg")
         .attr("id", "main_graph")
         .attr("class", "main_svg_graph")
         .attr("width", 800)
         .attr("height", 600);
 
-    var data = {
+    const data = {
         nodes: [
             {name: "Name_1", x: 10, y: 10},
             {name: "Name_2", x: 10, y: 200},
@@ -19,41 +19,27 @@ export default function addGraph(graphNodes){
             {source: 1, target: 2}
         ]
     };
-    // data.append(graphNodes);
 
-// SVG elements
-
-    var graph_width = 800;
-    var graph_height = 500;
-
-    // var svg = d3.select( '#graph' )
-    //     .append( 'svg' )
-    //     .attr( 'width', graph_width )
-    //     .attr( 'height', graph_height );
-
-
-    var circles = svg.selectAll("circle")
+    const circles = svg.selectAll("circle")
         .data(data.nodes)
         .enter()
         .append("circle");
 
-
-    var circleAttributes = circles
+    circles
         .attr("cx", function (d) { return d.x; })
         .attr("cy", function (d) { return d.y; })
-        .attr("r", function (d) { return 10; })
-        .style("fill", function(d) { return "red"; });
-
+        .attr("r", function () { return 10; })
+        .style("fill", function() { return "red"; });
 
 // // Drawing the links
-    var lines  =   svg.selectAll("line")
+    const lines  =   svg.selectAll("line")
         .data(data.links)
         .enter()
         .append( "line" )
         .style( "stroke", "white" )
         .style( "stroke-width", 2 );
 
-    var linesAttributes = lines
+    lines
         .attr("x1", function (d) { return data.nodes[d.source].x; })
         .attr("y1", function (d) { return data.nodes[d.source].y; })
         .attr("x2", function (d) { return data.nodes[d.target].x; })
@@ -61,20 +47,18 @@ export default function addGraph(graphNodes){
         .style( "stroke", "black" )
         .style( "stroke-width", 2 );
 
-    var nodeLabels = svg.selectAll("text")
+    const nodeLabels = svg.selectAll("text")
         .data(data.nodes)
         .enter()
         .append("text");
 
-    var nodeLabelsAttributes = nodeLabels
+    nodeLabels
         .attr("x", function(d) { return d.x; })
         .attr("y", function(d) { return d.y; })
         .text( function (d) { return d.name; })
         .attr("font-family", "sans-serif")
         .attr("font-size", "10px")
         .attr("fill", "black");
-
-
 };
 
 
