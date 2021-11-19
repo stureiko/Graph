@@ -2,9 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
     makeDemo1()
 })
 
-function makeDemo1() {
-    // Read data and add circles
-    d3.tsv( "data/examples-simple.tsv" )
+function plot_nodes(tsv) {
+    d3.tsv( tsv )
         .then( function( data ) {
             d3.select( "svg" )
                 .selectAll( "circle" )
@@ -15,9 +14,11 @@ function makeDemo1() {
                 .attr( "cx", function(d) { return d["x"] } )
                 .attr( "cy", function(d) { return d["y"] } );
         } );
+}
 
+function plot_captions(tsv) {
     // Read and add text labels
-    d3.tsv( "data/examples-simple.tsv" )
+    d3.tsv( tsv )
         .then( function( data ) {
             d3.select( "svg" )
                 .selectAll( "text" )
@@ -30,4 +31,12 @@ function makeDemo1() {
                 .style("font-size", 18)
                 .text(function(d) { return d["name"] });
         } );
+}
+
+function makeDemo1() {
+    // Plot Nodes
+    plot_nodes("data/examples-simple.tsv")
+
+    // Plot captions
+    plot_captions("data/examples-simple.tsv")
 }
